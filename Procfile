@@ -1,0 +1,1 @@
+web: gunicorn tutorsight.wsgi
