@@ -1,1 +1,1 @@
-web: gunicorn tutorsight.wsgi
+web: gunicorn django.core.wsgi
