@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tutorsight-django-project.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['tutorsight-django-project.herokuapp.com', 'localhost', '8000-markyjay-fsdjangoprojec-ev1i8mh575m.ws-eu107.gitpod.io']
 
 
 # Application definition
@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -110,6 +114,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Authentication Backends
+AUTHENTICATION_BACKENDS = [
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# Django Allauth Settings
+SITE_ID = 1  # Make sure to set the correct site ID
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+LOGIN_REDIRECT_URL = '/'  # Set this to the desired URL after login
+LOGOUT_REDIRECT_URL = '/'  # Set this to the desired URL after logout
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
