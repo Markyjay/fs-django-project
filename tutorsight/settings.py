@@ -119,6 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Authentication Backends
 AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 # Django Allauth Settings
