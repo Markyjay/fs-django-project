@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tutorsight-django-project-fa74b7b42ae2.herokuapp.com', 'localhost', '8000-markyjay-fsdjangoprojec-ev1i8mh575m.ws-eu107.gitpod.io']
+ALLOWED_HOSTS = ['tutorsight-django-project-fa74b7b42ae2.herokuapp.com', 'localhost', '8000-markyjay-fsdjangoprojec-ev1i8mh575m.ws-eu108.gitpod.io']
 
 
 # Application definition
