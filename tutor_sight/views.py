@@ -10,8 +10,5 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
-# Create your views here.
 def index(request):
-    template = loader.get_template("base.html")
-    return HttpResponse(template.render)
-    
+    return render(request,'index.html')
