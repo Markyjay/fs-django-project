@@ -1,25 +1,13 @@
+from django import forms
 from django.contrib import admin
-from .models import Post, Comment, Profile
+from .models import TeacherProfile, Review, Student
 from django_summernote.admin import SummernoteModelAdmin
 
-@admin.register(Post)
-class PostAdmin(SummernoteModelAdmin):
+class TeacherProfileForm(forms.ModelForm):
+    class Meta:
+        model = TeacherProfile
+        fields = '__all__'
 
-    list_display = ('title', 'slug', 'status', 'created_on')
-    search_fields = ['title', 'content']
-    prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = ('content')
+admin.site.register(Review)
 
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-
-    list_display = ('name', 'body', 'post', 'created_on', 'approved')
-    list_filter = ('created_on', 'approved')
-    search_fields = ['name', 'email', 'body']
-    actions = ['approved_comments']
-
-    def approve_comments(self, request, queryset):
-        queryset.update(approved=True)
-
-
-admin.site.register(Profile)
+admin.site.register(Student)
