@@ -1,142 +1,87 @@
 body {
-  background-color: #f9fafc;
+  background-color: #f5f8fa;
+  font-family: "Montserrat", sans-serif; /* Updated font family */
 }
 
-.brand {
-  font-family: Lato, sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #4a4a4f;
+/* TeacherProfile Styles */
+.teacher-profile-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.red-o {
-  color: #e84610;
+.teacher-profile-bio {
+  color: #333333;
 }
 
-.thin {
-  font-weight: 300;
+.teacher-profile-expertise {
+  color: #3498db;
 }
 
-.light-bg {
-  background-color: #fff;
+.teacher-profile-rate {
+  color: #27ae60;
 }
 
-.dark-bg {
-  background-color: #445261;
+.teacher-profile-availability {
+  color: #f39c12;
 }
 
-.main-bg {
-  background-color: #1e5701;
+/* Student Styles */
+.student-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.card {
-  border: none;
-  background-color: transparent;
+.student-bio {
+  color: #333333;
 }
 
-.image-container {
-  position: relative;
+/* Review Styles */
+.review-container {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.image-flash {
-  position: absolute;
-  bottom: 5%;
-  min-width: 30%;
-  left: -2px;
-  background-color: #23bbbb;
+.review-rating {
+  color: #f39c12;
 }
 
-.author {
-  color: white;
-  margin: 4px;
-  text-transform: uppercase;
-}
-
-.masthead {
-  margin-top: 10px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  height: 33vh;
-  width: 100%;
-}
-
-.masthead-text {
-  background-color: #445261;
-  color: white;
-  position: relative;
-}
-
-.masthead-image {
-  position: relative;
-  overflow: hidden;
-}
-
-.masthead-image:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 90%;
-  height: 100%;
-  width: 150%;
-  background: #445261;
-  -webkit-transform: skew(15deg);
-  -moz-transform: skew(15deg);
-  transform: skew(15deg);
-  z-index: 100;
-}
-
-.post-link {
-  text-decoration: none;
-  color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-  color: #e84610;
-}
-
-.post-title {
-  margin-top: 20%;
-  margin-left: 5%;
-}
-
-.post-subtitle {
-  margin-left: 5%;
-  color: lightgray;
-}
-
-.btn-signup {
-  background-color: #23bbbb;
-  color: #fff;
+.review-comment {
+  color: #333333;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-  background-color: #fff;
-  color: #23bbbb;
+  background-color: #ffffff;
+  color: #2ecc71;
 }
 
 .link {
-  color: #23bbbb;
+  color: #3498db;
   text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-  color: #445261;
+  color: #34495e;
   text-decoration: underline;
 }
 
 .btn-like {
-  color: #e84610;
+  color: #e74c3c;
   border: none;
   background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-  color: #e84610;
+  color: #e74c3c;
   background: transparent;
   border: none;
 }
