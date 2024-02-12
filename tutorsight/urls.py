@@ -16,12 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from tutor_sight import views as index_views
 
 urlpatterns = [
-    path('', index_views.index, name='index'),
     path('admin/', admin.site.urls),
-    path('', include('tutor_sight.urls'), name='tutor_sight-urls'),
     path('summernote/', include('django_summernote.urls')),
-    path('accounts/', include('allauth.urls')),  # Include Allauth URLs
+    path('', include('tutor_sight.urls'), name="tutor_sight_urls"),
+    path('accounts/', include('allauth.urls')),
 ]

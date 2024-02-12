@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import admin
-from .models import TeacherProfile, Review, Student
+from .models import TeacherProfile, TeacherProfileDetail, Review
 from django_summernote.admin import SummernoteModelAdmin
 
 class TeacherProfileForm(forms.ModelForm):
@@ -8,6 +8,6 @@ class TeacherProfileForm(forms.ModelForm):
         model = TeacherProfile
         fields = '__all__'
 
+admin.site.register(TeacherProfile)
+admin.site.register(TeacherProfileDetail)
 admin.site.register(Review)
-
-admin.site.register(Student)
