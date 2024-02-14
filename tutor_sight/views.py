@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import TemplateView, ListView
 
-class index(ListView):
+class Index(ListView):
     model = TeacherProfile
     template_name = 'index.html'
-
