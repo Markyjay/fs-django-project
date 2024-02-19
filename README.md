@@ -68,13 +68,13 @@ My three main objectives were:
 
   Enable users to easily discover and explore detailed profiles of teachers, showcasing their expertise, bio, and availability.
 
+- ### Book a Session
+  Allow users to schedule an hour tutoring session at a specific date and time. 
+
 - ### Review and Feedback:
 
    Facilitate a transparent and reliable system for users to leave reviews, rate tutors, and provide valuable feedback on their learning experiences.
 
-- ### Subject Discussions:
-
-   Foster an interactive community by providing discussion forums where users can actively engage in conversations, share insights, and seek assistance on various subject topics.
 
 ___
 

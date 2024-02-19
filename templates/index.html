@@ -2,26 +2,25 @@
 {% load static %}
 {% block content %} 
 
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 mt-3 left">
         <div class="row">
           {% for teacher in teacherprofiles %}
-            <a href="{% url 'teacherprofiledetails'}" class="col-6 card link rounded mx-auto d-block alert-warning">
+            <a href="" class="col-6 card link rounded mx-auto d-block alert-warning">
               <div class="card">
                 <div class="card-body alert-primary">
                   <h2 class="card-title text-center">{{ teacher.name }}</h2>
                   <img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded mx-auto d-block mb-3">
                 </a>
+                  <div class="card-text text-center"><strong>Teacher ID:</strong>{{ teacher.teacher_id }}</div> 
                   <div class="card-text text-center">{{ teacher.bio }}</div>
                   <div class="card-text text-center"><strong>Expertise:</strong>{{ teacher.expertise }}</div>
                   <div class="card-text text-center"><strong>Hourly Rate:</strong>€{{ teacher.hourly_rate }}</div>
                   <div class="card-text text-center"><strong>Availability:</strong>{{ teacher.availability }}</div>
-                  <div class="text-center"><button class="card-text btn btn-success"><strong>Book session</strong></button></div>
+                  <div class="card-text text-center"><button type="button" class="btn btn-success"><a href="{ % url 'teacher_id' % }"></a>Book A Session</button></div>
                 </div>
               </div>
-            
           {% endfor %}
         </div>
       </div>
