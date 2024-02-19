@@ -19,7 +19,7 @@
                         <li class="list-group-item"><div class="card-text text-center"><strong>Expertise:</strong>{{ teacher.expertise }}</div></li>
                         <li class="list-group-item"><div class="card-text text-center"><strong>Hourly Rate:</strong>€{{ teacher.hourly_rate }}</div></li>
                         <li class="list-group-item"><div class="card-text text-center"><strong>Availability:</strong>{{ teacher.availability }}</div></li>
-                        <li class="list-group-item"><div class="card-text text-center"><button type="button" class="btn btn-success"><a href="{ % url 'teacher_id' % }"></a>Book A Session</button></div></li>
+                        <li class="list-group-item"><div class="card-text text-center"><a class="btn btn-success" href="{% url 'create_booking' teacher.teacher_id %}">Book A Session</a></div></li>
                       </ul>
                     </div>
                   </div>

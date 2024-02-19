@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'django.contrib.sites',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -128,8 +128,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Django Allauth Settings
-SITE_ID = 1  # Make sure to set the correct site ID
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+SITE_ID = 1 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True

@@ -36,20 +36,20 @@ class TeacherProfileDetail(View):
 
 @login_required
 def create_booking(request, teacher_id):
-
     teacher = get_object_or_404(TeacherProfile, pk=teacher_id)
+    print(teacher)
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
             booking.save()
-            return redirect('booking_detail', teacher_id=teacher.teacher_id)
+            return redirect('booking_detail', teacher_id=teacher_id)
     else:
         form = BookingForm()
     
     context = {
-        'form': form,
+        'booking_form': form,
         'teacher_id': teacher_id,
         'teacher': teacher,
     }

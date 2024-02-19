@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-{% load crispy_forms_tags %}
+
 
 <div class="masthead">
     <div class="container">
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 card mb-4 mt-3">
             <h3>Bookings:</h3>
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each booking in bookings -->
@@ -64,7 +64,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
+        <div class="col-md-4 card mb-4 mt-3">
             <div class="card-body">
                 <!-- For later -->
                 {% if booked %}
@@ -76,8 +76,8 @@
 
                 <h3>Make a booking:</h3>
                 <p>Booking by: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ booking_form | crispy }}
+                <form method="post" action="{% url 'create_booking' teacher.teacher_id %}" style="margin-top: 1.3em;">
+                    {{ booking_form }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
