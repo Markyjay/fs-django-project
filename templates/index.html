@@ -7,22 +7,24 @@
       <div class="col-12 mt-3 left">
         <div class="row">
           {% for teacher in teacherprofiles %}
-            <a href="" class="col-6 card link rounded mx-auto d-block alert-warning"></a>
-              <div class="card w-60 p-3 mb-2">
-                <div class="card-body alert-primary">
-                  <h2 class="card-title text-center">{{ teacher.name }}</h2>
-                  <div class="rounded mx-auto d-block mb-2"><img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded mx-auto d-block mb-3"></a></div>
-                    <div class = "align-middle w-50 p-3">
-                      <ul class="list-group list-group-flush align-middle">
-                        <li class="list-group-item"><div class="card-text text-center"><strong>Teacher ID:</strong>{{ teacher.teacher_id }}</div> </li>
-                        <li class="list-group-item"><div class="card-text text-center"><strong>Biography:</strong>{{ teacher.bio }}</div></li>
-                        <li class="list-group-item"><div class="card-text text-center"><strong>Expertise:</strong>{{ teacher.expertise }}</div></li>
-                        <li class="list-group-item"><div class="card-text text-center"><strong>Hourly Rate:</strong>€{{ teacher.hourly_rate }}</div></li>
-                        <li class="list-group-item"><div class="card-text text-center"><strong>Availability:</strong>{{ teacher.availability }}</div></li>
-                        <li class="list-group-item"><div class="card-text text-center"><a class="btn btn-success" href="{% url 'create_booking' teacher.teacher_id %}">Book A Session</a></div></li>
-                      </ul>
+            <a href="{% url 'create_booking' teacher.teacher_id %}" class="col-6 card link rounded mx-auto d-block alert-warning"></a>
+              <div class="card w-60 p-1">
+                <div class="card-body alert-info">
+                  <h2 class="card-title">{{ teacher.name }}</h2>
+                  <div class = "card-body alert-info d-flex">
+                    <div class="rounded mx-auto d-block mb-2"><img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded-circle mx-auto d-block mb-3"></a></div>
+                      <div class = "align-middle w-50 p-3">
+                        <ul class="list-group list-group-flush align-middle">
+                          <li class="list-group-item"><div class="card-text text-center"><strong>Teacher ID:</strong>{{ teacher.teacher_id }}</div> </li>
+                          <li class="list-group-item"><div class="card-text text-center"><strong>Biography:</strong>{{ teacher.bio }}</div></li>
+                          <li class="list-group-item"><div class="card-text text-center"><strong>Expertise:</strong>{{ teacher.expertise }}</div></li>
+                          <li class="list-group-item"><div class="card-text text-center"><strong>Hourly Rate:</strong>€{{ teacher.hourly_rate }}</div></li>
+                          <li class="list-group-item"><div class="card-text text-center"><strong>Availability:</strong>{{ teacher.availability }}</div></li>
+                          <li class="list-group-item"><div class="card-text text-center"><a class="btn btn-success" href="{% url 'create_booking' teacher.teacher_id %}">Book A Session</a></div></li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
+                    </div>
                 </div>
               </div>
           {% endfor %}

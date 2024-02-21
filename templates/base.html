@@ -36,11 +36,12 @@
   <body class="d-flex flex-column h-100 main-bg">
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-warning">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'Index' %}"
-          ><span class="brand">TutorSight</span></a
-        >
+        <a class="navbar-brand" href="{% url 'Index' %}"><img src="https://res.cloudinary.com/dywqmlkp8/image/upload/v1708543925/TutorSight/tutorsightowl_sibwxq.jpg" class="thumbnail img-fluid rounded-circle logo_img" alt="TutorSight_logo"><span class="brand"><h1>TutorSight</h1></span></a>
+        <span class="navbar-text me-auto">
+          A site to connect teachers and students.
+        </span>
         <button
           class="navbar-toggler"
           type="button"
@@ -53,7 +54,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
                 class="nav-link {% if request.path == '/' %}active{% endif %}"
@@ -77,9 +78,6 @@
             </li>
             {% endif %}
           </ul>
-          <span class="navbar-text text-muted">
-            A site to connect teachers and students.
-          </span>
         </div>
       </div>
     </nav>

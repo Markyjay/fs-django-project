@@ -11,6 +11,14 @@ body {
 main {
   padding: 20px;
 }
+/* Logo */
+
+.logo_img {
+  float: left;
+  display: block;
+  max-width: 15%;
+  height: auto;
+}
 
 /* Navigation styles */
 .navbar {
