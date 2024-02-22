@@ -5,7 +5,7 @@ body, h1, h2, p, ul {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #9bd4fa; /* Light Blue */
+  background-color: #0E402D; /*British Racing Green*/
 }
 
 main {
@@ -22,7 +22,7 @@ main {
 
 /* Navigation styles */
 .navbar {
-  background-color: #e5f58e;
+  background-color: #71B01D; /*Apple Green*/
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -36,8 +36,8 @@ main {
 
 /* Footer styles */
 .footer {
-  background-color: #2c3e50; /* Dark Slate Blue */
-  color: #fff;
+  background-color: #D6A2AD; /* Puce */
+  color: #fffcff; /* Snow */
 }
 
 /* Follow us icons */
@@ -49,13 +49,13 @@ main {
 /* Active link style */
 .nav-link.active {
   font-weight: bold;
-  color: #3498db; /* Sky Blue */
+  color: #A3E7FC; /* Photo Blue */
 }
 
 /* Button style */
 .btn-signup {
-  background-color: #3498db; /* Sky Blue */
-  color: #fff;
+  background-color: #A3E7FC; /* Photo Blue */
+  color: #fffcff; /* Snow */
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
@@ -64,19 +64,19 @@ main {
 
 .btn-signup:hover,
 .btn-signup:active {
-  background-color: #2980b9; /* Slightly darker shade of Sky Blue */
-  color: #fff;
+  background-color: #2980b9; /* Slightly darker shade of photo Blue */
+  color: #fffcff; /* Snow */
 }
 
 /* Link style */
 .link {
-  color: #3498db; /* Sky Blue */
+  color: #A3E7FC; /* Photo Blue */
   text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-  color: #34495e;
+  color: #0E402D; /*British Racing Green*/
   text-decoration: none;
 }
 
@@ -88,10 +88,10 @@ main {
 
 /* Main background color */
 .main-bg {
-  background-color: #4eaa65;
+  background-color: #71B01D; /*Apple Green*/
 }
 
 /* Dark background color for the footer */
 .dark-bg {
-  background-color: #2c3e50;
+  background-color: #0E402D; /*British Racing Green*/
 }

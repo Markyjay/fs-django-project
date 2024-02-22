@@ -142,9 +142,9 @@ ___
 
 The color palette chosen includes shades of blue and green for a calming and professional feel.
 White backgrounds and dark blue-gray elements maintain readability and a modern appearance.
-Reddish-orange is used as an accent color for attention-grabbing elements.
+Puce is used as an accent color for attention-grabbing elements.
 The color scheme aims to convey trust, growth, and a positive learning environment, which aligns with the tutoring site's purpose.
-
+![Coolors Pallete](https://coolors.co/72b01d-0e402d-a3e7fc-fffcff-d6a2ad)
 
 ## Typography
 

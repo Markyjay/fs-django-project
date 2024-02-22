@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 text-center">
+            <h2>Your booking is under review</h2>
+            <p>We appreciate your interest. Our team is reviewing your booking request. You will be notified once it's approved.</p>
+            <a href="{% url 'Index' %}" class="btn btn-primary">Return to Home</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
