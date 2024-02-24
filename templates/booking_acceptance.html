@@ -1,14 +1,43 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-6 offset-md-3 text-center">
-            <h2>Your booking is under review</h2>
-            <p>We appreciate your interest. Our team is reviewing your booking request. You will be notified once it's approved.</p>
-            <a href="{% url 'Index' %}" class="btn btn-primary">Return to Home</a>
+<div class="container mt-5">
+    <!-- Display a message to the user indicating the booking status -->
+    <div class="alert alert-info" role="alert">
+        {% if booking.status == 'pending' %}
+            Your booking is under review. Thank you for choosing TutorSight!
+        {% elif booking.status == 'confirmed' %}
+            Your booking has been confirmed. Thank you for choosing TutorSight!
+        {% else %}
+            <!-- Add more conditions as needed -->
+        {% endif %}
+    </div>
+    
+    <!-- Display the booking ID -->
+    <div>
+        <p>Booking ID: {{ booking.id }}</p>
+    </div>
+
+    <!-- Add buttons for deleting and editing the booking based on status -->
+    {% if booking.status == 'pending' %}
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Button to delete the booking -->
+                <form method="post" action="{% url 'delete_booking' booking.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete Booking</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <!-- Button to edit the booking (redirect to edit view) -->
+                <a href="{% url 'edit_booking' booking.id %}" class="btn btn-primary">Edit Booking</a>
+            </div>
         </div>
+    {% endif %}
+
+    <!-- Add a button to return to the home page -->
+    <div class="mt-3">
+        <a href="{% url 'Index' %}" class="btn btn-secondary">Back to Home</a>
     </div>
 </div>
 

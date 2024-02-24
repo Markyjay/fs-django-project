@@ -18,9 +18,11 @@ class TeacherProfile(models.Model):
 class Review(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="review_posts"
+    teacher_profile = models.ForeignKey(
+        TeacherProfile, on_delete=models.CASCADE, related_name='reviews'
     )
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="review_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -63,6 +65,7 @@ class Booking(models.Model):
     time = models.CharField(
         max_length=10, default="9 AM")
     time_ordered = models.DateTimeField(default=datetime.now, blank=True)
+    status = models.CharField(max_length=20, default="pending")
 
     def __str__(self):
         return f"{self.user} | day: {self.day} | time: {self.time}"

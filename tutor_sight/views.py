@@ -17,17 +17,15 @@ class Index(ListView):
 class ReviewDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = TeacherProfile.objects.filter(status=1)
-        TeacherProfile = get_object_or_404(queryset, slug=slug)
-
-        reviews = Review.objects.filter(teacher_id=teacher_profile)
-        bookings = Booking.objects.filter(teacher_id=teacher_profile)
+        teacher = get_object_or_404(TeacherProfile, teacher_id=teacher_id)
+        reviews = teacher.reviews.filter(status=1).order_by('-created_on')
+        bookings = Booking.objects.filter(teacher=teacher)
                 
         return render(
                 request,
                 "review_detail.html",
                 {
-                    "teacherprofile": TeacherProfile,
+                    "teacher": teacher,
                     "reviews": reviews,
                     "bookings": bookings,
                 },
@@ -41,8 +39,9 @@ def create_booking(request, teacher_id):
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
+            booking.status = "pending"
             booking.save()
-            return redirect('booking_acceptance', pk=teacher_id)
+            return redirect('booking_acceptance', booking_id=booking.id)
     else:
         form = BookingForm()
     
@@ -54,8 +53,47 @@ def create_booking(request, teacher_id):
     return render(request, 'create_booking.html', context)
 
 @login_required
-def booking_acceptance(request):
-    return render(request, 'booking_acceptance.html')
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            edited_booking = form.save(commit=False)
+            edited_booking.status = "pending"  
+            edited_booking.save()
+            return redirect('Index') 
+    else:
+        form = BookingForm(instance=booking)
+
+    context = {
+        'form': form,
+        'booking': booking,
+    }
+
+    return render(request, 'create_booking.html', context)
+
+@login_required
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('Index') 
+
+    return render(request, 'booking_confirm_delete.html', {'booking': booking})
+
+@login_required
+def booking_acceptance(request, booking_id):
+    booking = get_object_or_404(Booking, pk=booking_id)
+    
+    if request.method == 'POST':  # needed for booking confirmation
+        booking.status = "confirmed"
+        booking.save()
+        return redirect('Index')  # Redirect to home page
+
+    return render(request, 'booking_acceptance.html', {'booking': booking})
+
 
 class ReviewList(ListView):
     model = Review

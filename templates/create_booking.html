@@ -43,40 +43,33 @@
         </div>
     </div>
     <div class="row">
-        <div class="card-body">
-            <!-- A for loop inside the empty control tags to iterate through each booking in bookings -->
+        <div class="col card-body">
             {% for booking in bookings %}
             <div class="bookings" style="padding: 10px;">
                 <p class="font-weight-bold">
-                    <!-- The students ID goes here -->
-                    {{ booking.student_id }}
-                    <span class=" text-muted font-weight-normal">
-                        <!-- The bookings created date goes here -->
+                    {{ booking.user.username }}
+                    <span class="text-muted font-weight-normal">
                         {{ booking.created_on }}
                     </span> wrote:
                 </p>
-                <!-- The body of the student comment/requests goes before the | -->
                 {{ booking.body | linebreaks }}
             </div>
-            <!-- Our for loop ends here -->
             {% endfor %}
         </div>
-        <div class="col-md-4 card mb-4 mt-3">
+        <div class="col-md-4 card mb-4">
             <div class="card-body">
-                <!-- For later -->
                 {% if booked %}
                 <div class="alert alert-success" role="alert">
                     Your booking is awaiting approval
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
-
                 <h3>Make a booking:</h3>
                 <p>Booking by: {{ user.username }}</p>
                 <form method="post" action="{% url 'create_booking' teacher.teacher_id %}" style="margin-top: 1.3em;">
                     {{ booking_form }}
                     {% csrf_token %}
-                    <button type="submit" href="" class="btn btn-signup btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% endif %}
                 {% endif %}

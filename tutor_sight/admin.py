@@ -14,6 +14,7 @@ class BookingForm(forms.ModelForm):
         fields = ['subject', 'day', 'time']
 
 admin.site.register(TeacherProfile)
+admin.site.register(Booking)
 
 @admin.register(Review)
 class ReviewAdmin(SummernoteModelAdmin):
@@ -33,3 +34,4 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
