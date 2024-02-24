@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-6">
                 <!-- Button to edit the booking (redirect to edit view) -->
-                <a href="{% url 'edit_booking' booking.id %}" class="btn btn-primary">Edit Booking</a>
+                <a href="{% url 'create_booking' teacher.teacher_id %}" class="btn btn-primary">Edit Booking</a>
             </div>
         </div>
     {% endif %}
