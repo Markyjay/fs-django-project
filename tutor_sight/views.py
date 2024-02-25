@@ -34,14 +34,18 @@ class ReviewDetail(View):
 @login_required
 def create_booking(request, teacher_id):
     teacher = get_object_or_404(TeacherProfile, pk=teacher_id)
+   
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
+            booking.teacher = teacher
             booking.status = "pending"
             booking.save()
-            return redirect('booking_acceptance', booking_id=booking.id)
+            if booking.id:
+                return redirect('booking_acceptance', booking_id=booking.id)
+            
     else:
         form = BookingForm()
     
@@ -86,12 +90,19 @@ def delete_booking(request, booking_id):
 @login_required
 def booking_acceptance(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
-    
+
     if request.method == 'POST':  # needed for booking confirmation
         booking.status = "confirmed"
         booking.save()
         return redirect('Index')  # Redirect to home page
 
+    else:
+        form = BookingForm()
+    
+    context = {
+        'booking': booking,
+    }
+    
     return render(request, 'booking_acceptance.html', {'booking': booking})
 
 

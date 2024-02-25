@@ -39,37 +39,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col card-body">
-            {% for booking in bookings %}
-            <div class="bookings" style="padding: 10px;">
-                <p class="font-weight-bold">
-                    {{ booking.user.username }}
-                    <span class="text-muted font-weight-normal">
-                        {{ booking.created_on }}
-                    </span> wrote:
-                </p>
-                {{ booking.body | linebreaks }}
-            </div>
-            {% endfor %}
-        </div>
-        <div class="col-md-4 card mb-4">
-            <div class="card-body">
-                {% if booked %}
-                <div class="alert alert-success" role="alert">
-                    Your booking is awaiting approval
-                </div>
-                {% else %}
-                {% if user.is_authenticated %}
-                <h3>Make a booking:</h3>
-                <p>Booking by: {{ user.username }}</p>
-                <form method="post" action="{% url 'create_booking' teacher.teacher_id %}" style="margin-top: 1.3em;">
-                    {{ booking_form }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}
-                {% endif %}
-            </div>
+            {% if user.is_authenticated %}
+            <h3>Make a booking:</h3>
+            <p>Booking by: {{ user.username }}</p>
+            <form method="post" action="" style="margin-top: 1.3em;">
+                {{ booking_form }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+            {% endif %}
+            {% endif %}
+            
         </div>
     </div>
 </div>

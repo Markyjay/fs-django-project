@@ -59,6 +59,7 @@ class Comment(models.Model):
 class Booking(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
+    teacher = models.ForeignKey( TeacherProfile, on_delete=models.CASCADE, null=True, blank=True)
     subject = models.CharField(
         max_length=50, null=True, blank=True)
     day = models.DateField(default=datetime.now)

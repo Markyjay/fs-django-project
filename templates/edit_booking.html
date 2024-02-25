@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="masthead">
+    <div class="container-fluid">
+        <div class="card row g-0">
+            <div class="col-md-6 masthead-text">
+                <h1 class="profile">{{ teacher.name }}</h1>
+                <p class="profile-subtitle">{{ teacher.teacher_id }}</p>
+            </div>
+            <div class="rounded mx-auto d-block mb-2">
+                {% if "placeholder" in post.featured_image.url %}
+                <img src="" width="100%">
+                {% else %}
+                <img src="{{ teacher.profile_image.url }}" width="30%">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left top">
+            <div class="card-body">
+                <p class="card-text ">
+                    {{ profile.content | safe }}
+                </p>
+                <div class="row">
+                    <div class="col-1">
+                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ profile.number_of_likes }} </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        {% if user.is_authenticated %}
+        <h3>Make a booking:</h3>
+        <p>Booking by: {{ user.username }}</p>
+        <form method="post" action="{% url 'booking_acceptance' booking_id %}" style="margin-top: 1.3em;">
+            {{ booking_form }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+        {% endif %}
+        {% endif %}
+        
+    </div>
+</div>
+</div>
+
+{% endblock content %}
