@@ -11,7 +11,7 @@ class TeacherProfileForm(forms.ModelForm):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['subject', 'day', 'time']
+        fields = ['subject', 'date', 'time']
 
 admin.site.register(TeacherProfile)
 admin.site.register(Booking)

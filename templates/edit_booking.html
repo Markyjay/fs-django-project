@@ -34,24 +34,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
         {% if user.is_authenticated %}
-        <h3>Make a booking:</h3>
+        <h3>Edit booking:</h3>
         <p>Booking by: {{ user.username }}</p>
-        <form method="post" action="{% url 'booking_acceptance' booking_id %}" style="margin-top: 1.3em;">
-            {{ booking_form }}
+        <form method="post" action="{% url 'edit_booking' booking.id %}" style="margin-top: 1.3em;">
+            {{ form.as_p }}
             {% csrf_token %}
             <button type="submit" class="btn btn-signup btn-lg">Submit</button>
         </form>
         {% endif %}
-        {% endif %}
-        
     </div>
-</div>
 </div>
 
 {% endblock content %}
