@@ -98,7 +98,6 @@ WSGI_APPLICATION = 'tutorsight.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
