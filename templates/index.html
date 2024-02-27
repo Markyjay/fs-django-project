@@ -27,11 +27,11 @@
                       </div> 
                       <div class = "align-middle w-50 p-3">
                         <ul class="list-group list-group-flush align-middle">
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Teacher ID:</strong>{{ teacher.teacher_id }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Biography:</strong>{{ teacher.bio }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Expertise:</strong>{{ teacher.expertise }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Hourly Rate:</strong>€{{ teacher.hourly_rate }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Availability:</strong>{{ teacher.availability }}</div></li>
+                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Teacher ID: </strong>{{ teacher.teacher_id }}</div></li>
+                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Biography: </strong>{{ teacher.bio }}</div></li>
+                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Expertise: </strong>{{ teacher.expertise }}</div></li>
+                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Hourly Rate: </strong>€{{ teacher.hourly_rate }}</div></li>
+                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Availability: </strong>{{ teacher.availability }}</div></li>
                           <li class="list-group-item"><div class="card-text text-center"><a class="btn btn-success" href="{% url 'create_booking' teacher.teacher_id %}">Book A Session</a></div></li>
                         </ul>
                       </div>

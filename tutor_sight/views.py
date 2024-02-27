@@ -47,7 +47,7 @@ def create_booking(request, teacher_id):
             booking.status = "pending"
             booking.save()
             if booking.id:
-                return redirect('booking_acceptance', booking_id=booking.id)
+                return redirect('accept_booking', booking_id=booking.id)
             
     else:
         form = BookingForm()
@@ -71,7 +71,7 @@ def edit_booking(request, booking_id):
             edited_booking.save()
             return redirect('Index') 
     else:
-        form = BookingForm(instance=booking, initial={'booking_date': booking.date, 'booking_time': booking.time})
+        form = BookingForm(instance=booking)
 
     context = {
         'form': form,
@@ -88,10 +88,10 @@ def delete_booking(request, booking_id):
         booking.delete()
         return redirect('Index') 
 
-    return render(request, 'booking_confirm_delete.html', {'booking': booking})
+    return render(request, 'delete_booking.html', {'booking': booking})
 
 @login_required
-def booking_acceptance(request, booking_id):
+def accept_booking(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
 
     if request.method == 'POST':  # needed for booking confirmation
@@ -106,7 +106,7 @@ def booking_acceptance(request, booking_id):
         'booking': booking,
     }
     
-    return render(request, 'booking_acceptance.html', {'booking': booking})
+    return render(request, 'accept_booking.html', {'booking': booking})
 
 
 class ReviewList(ListView):
