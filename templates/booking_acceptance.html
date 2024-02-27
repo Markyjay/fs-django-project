@@ -30,7 +30,10 @@
             </div>
             <div class="col-md-6">
                 <!-- Button to edit the booking (redirect to edit view) -->
-                <a href="{% url 'edit_booking' booking.id %}" class="btn btn-primary">Edit Booking</a>
+                <form method="post" action="" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Edit Booking</button>
+                </form>
             </div>
         </div>
     {% endif %}

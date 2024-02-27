@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import ListView, View
+from datetime import time
 
 class Index(ListView):
     model = TeacherProfile
@@ -41,10 +42,12 @@ def create_booking(request, teacher_id):
             booking = form.save(commit=False)
             booking.user = request.user
             booking.teacher = teacher
+            booking.date = form.cleaned_data['booking_date']
+            booking.time = form.cleaned_data['booking_time']
             booking.status = "pending"
             booking.save()
             if booking.id:
-                return redirect('booking_acceptance', booking_id=booking.id)
+                return redirect('edit_booking', booking_id=booking.id)
             
     else:
         form = BookingForm()
@@ -75,7 +78,7 @@ def edit_booking(request, booking_id):
         'booking': booking,
     }
 
-    return render(request, 'create_booking.html', context)
+    return render(request, 'booking_acceptance.html', context)
 
 @login_required
 def delete_booking(request, booking_id):
@@ -103,7 +106,7 @@ def booking_acceptance(request, booking_id):
         'booking': booking,
     }
     
-    return render(request, 'booking_acceptance.html', {'booking': booking})
+    return render(request, 'edit_booking.html', {'booking': booking})
 
 
 class ReviewList(ListView):
