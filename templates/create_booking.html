@@ -19,26 +19,7 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left top">
-            <div class="card-body">
-                <p class="card-text ">
-                    {{ profile.content | safe }}
-                </p>
-                <div class="row">
-                    <div class="col-1">
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ profile.number_of_likes }} </strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
+     <div class="row">
             {% if user.is_authenticated %}
             <h3>Make a booking:</h3>
             <p>Booking by: {{ user.username }}</p>

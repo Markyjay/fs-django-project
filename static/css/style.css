@@ -24,6 +24,11 @@ main {
 .navbar {
   background-color: #71B01D; /*Apple Green*/
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: #549108; /* Lighter shade of Apple Green */
 }
 
 .navbar-brand {
@@ -32,6 +37,44 @@ main {
 
 .navbar-nav .nav-item {
   margin-right: 10px;
+}
+
+/* Image Styles */
+
+.img-thumbnail {
+  border-radius: 50%;
+}
+
+form input,
+form select,
+form textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Bootstrap classes for better alignment and spacing */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Add some margin to the submit button */
+form button[type="submit"] {
+  margin-top: 10px;
+}
+
+/* Review Section */
+
+.card-body {
+  border: 1px solid #ddd; /* Add a border to each review card */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Add some padding to the card body */
+.card-body {
+  padding: 15px;
 }
 
 /* Footer styles */

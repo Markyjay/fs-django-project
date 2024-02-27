@@ -14,11 +14,14 @@ class TeacherProfileForm(forms.ModelForm):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['subject', 'booking_date', 'booking_time']
+        fields = ('subject', 'booking_date', 'booking_time')
     
     subject = forms.CharField(label='Subject', max_length=100)
     booking_date = forms.DateField(label='Booking Date', widget=forms.DateInput(attrs={'type': 'date'}))
     booking_time = forms.TimeField(label='Booking Time', widget=forms.TimeInput(attrs={'type': 'time'}))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def clean_booking_date(self):
         booking_date = self.cleaned_data.get('booking_date')

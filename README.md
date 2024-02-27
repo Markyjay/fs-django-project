@@ -74,8 +74,6 @@ My three main objectives were:
 - ### Review and Feedback:
 
    Facilitate a transparent and reliable system for users to leave reviews, rate tutors, and provide valuable feedback on their learning experiences.
-
-
 ___
 
 # User Experience/UX
@@ -159,19 +157,19 @@ The logo was created using an online logo creator - [Looka](https://looka.com/)
 
 ## Wireframes
 
-- Mobile Homepage Wireframe
+- Homepage Wireframe
 
 ![Mobile Homepage Wireframe](documentation/wireframes/mobile_homepage_wireframe.png)
 
-- Mobile Post Detail Wireframe
+- Create Booking Wireframe
 
 ![Mobile Post Detail Wireframe](documentation/wireframes/mobile_post_detail_wireframe.png)
 
-- Desktop Homepage Wireframe
+- Edit Booking Wireframe
 
 ![Desktop Homepage Wireframe](documentation/wireframes/desktop_homepage_wireframe.png)
 
-- Desktop Post Detail Wireframe
+- Delete Booking Wireframe
 
 ![Desktop Post Detail Wireframe](documentation/wireframes/desktop_postdetail_wireframe.png)
 
@@ -179,13 +177,13 @@ The logo was created using an online logo creator - [Looka](https://looka.com/)
 
 Here is a diagram showing the possible flow through the site. There are 2 sections shown here. On the left it shows the Admin and the right shows a site user.
 
-![Site Flow Diagram](documentation/diagrams/site_flow_diagram.png)
+![Site Flow Diagram](https://www.figma.com/file/gHk6R0FeT2ix7E7lmObtCQ/TutorSight?type=whiteboard&node-id=0%3A1&t=kuzH5WAPPIhMXxq6-1)
 
 ## Database Plan
 
 The database plan is fairly simple, but it shows the information that is stored within the database, the type of data and if it is logged as a Primary or Foreign key where applicable.
 
-![Database plan](documentation/diagrams/database_plan.png)
+![Database plan](https://drawsql.app/teams/mark-youngs-team/diagrams/tutorsight)
 
 # Features
 
@@ -197,17 +195,11 @@ The user can create an account
 
 View Blog Posts on Home Page
 
-![View Blog Posts on Home Page](documentation/images/home.png)
+![View Reviews on Home Page](documentation/images/home.png)
 
-Browse by Post Category
+Comment on Reviews and tutor profile.
 
-![Browse by Post Category](documentation/images/browse_by_category.png)
-
-Comment on Blog Posts.
-
-*Also shown here is the trashcan which allows users to delete their own comments should they wish.*
-
-![Comment on Blog Posts](documentation/images/commenting.png)
+![Comment on reviews](documentation/images/commenting.png)
 
 ## Future Features
 
@@ -380,10 +372,6 @@ After each addition, change or removal of code, in the terminal within your IDE 
 
 The files are now available to view within your github repository.
 
-### Creating a Fork or Copying
-
-To clone/fork/copy the repository you click on the fork tab which is situated next to unwatch tab in the top right corner of the page
-
 ### Repository deployment via Heroku
 
 - On the [Heroku Dashboard](https://dashboard.heroku.com) page, click New and then select Create New App from the drop-down menu.
@@ -392,7 +380,9 @@ To clone/fork/copy the repository you click on the fork tab which is situated ne
 
 1. Cloudinary URL
 2. Postgres Database URL
-3. Port (8000)
+3. DISABLE_COLLECTSTATIC
+4. Port (8000)
+5. SECRET_KEY
 
 - Below this click Add buildpack and choose python and nodejs in that order.
 
@@ -403,14 +393,13 @@ To clone/fork/copy the repository you click on the fork tab which is situated ne
 - Choose the repository that holds the correct files and click Connect.
 - A choice is offered between manual or automatic deployment whereby the app is updated when changes are pushed to GitHub.
 - Once the deployment method has been chosen the app will be built and can be launched by clicking the Open app button which should appear below the build information window, alternatively, there is another button located in the top right of the page.
-
 ___
 
 ## Credits
 
-This project was based on the Code Institute's - I think therefore I blog walkthrough module which provided a standard blog 'base'. From this base I customised a lot of the layout and styling with Bootstrap and custom CSS. I also added a custom model for Category. This allowed me to create a functionality within the site for users to filter the blog posts by a selected category.
+This project was based on the Code Institute's - I think therefore I blog walkthrough module which provided a standard blog 'base'. From this base I customised a lot of the layout and styling with Bootstrap and custom CSS. I also added a custom model for booking a session. This allowed me to create a functionality within the site for users to filter through teachers and their reviews and comments selecting a suitable tutor if needed.
 
-I also added several custom Views and Forms to the site, as well as ensuring that all links and desired functionality was working as intended with no errors.
+I also added several custom Views and Forms to the site, as well as ensuring that all links and desired functionality was working as intended.
 
 For inspiration and fine-tuning of my code, I referred to John Elder's youtube channel [Codemy](https://www.youtube.com/@Codemycom) where I was able to get a better understanding of how to correctly create this type of product using Django and Bootstrap.
 
@@ -422,7 +411,7 @@ ___
 
 ## Media
 
-For placeholder images when no image is uploaded to blog post, I have used [picsum](https://picsum.photos/) which provides a library of stock images that display as a placeholder.
+For placeholder images, I have used [picsum](https://picsum.photos/) which provides a library of stock images that display as a placeholder.
 
 All other content and images are my own.
 
@@ -430,3 +419,12 @@ ___
 
 ## Acknowledgments and Thanks
 
+For inpiration in general, for code, design help and advice, I'd like to give thanks to;
+
+Patricia Young my mother who has been encouraging and patient with me throughout the project.
+
+Jubril my mentor at Code Institute who was very patient and generous with his time.
+
+Kyle Clow and Stephen Dawson new friends and recent hackathon partners who has helped me throughout my project with encouragement and patience. I can not thank them enough.
+
+Other Slack members and the code institute tutoring service was also helpful throughout the project.
