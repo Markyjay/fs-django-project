@@ -142,7 +142,9 @@ The color palette chosen includes shades of blue and green for a calming and pro
 White backgrounds and dark blue-gray elements maintain readability and a modern appearance.
 Puce is used as an accent color for attention-grabbing elements.
 The color scheme aims to convey trust, growth, and a positive learning environment, which aligns with the tutoring site's purpose.
-![Coolors Pallete](https://coolors.co/72b01d-0e402d-a3e7fc-fffcff-d6a2ad)
+![Coolors Pallete](documentation/diagrams/colorpalettelooka.jpg)
+![Coolors Pallete Coolers Link](https://coolors.co/72b01d-0e402d-a3e7fc-fffcff-d6a2ad)
+
 
 ## Typography
 
@@ -153,53 +155,54 @@ The overall changes aim to enhance readability and maintain a professional appea
 
 ## Logo and Favicon
 
-The logo was created using an online logo creator - [Looka](https://looka.com/)
+- The logo was created using an online logo creator - [Looka](https://looka.com/)
 
 ## Wireframes
 
 - Homepage Wireframe
 
-![Mobile Homepage Wireframe](documentation/wireframes/mobile_homepage_wireframe.png)
+![Homepage Wireframe](documentation/wireframes/basichomepagewireframe.jpg)
 
 - Create Booking Wireframe
 
-![Mobile Post Detail Wireframe](documentation/wireframes/mobile_post_detail_wireframe.png)
+![Create Booking Wireframe](documentation/wireframes/basiccreatebookingwireframe.jpg)
 
 - Edit Booking Wireframe
 
-![Desktop Homepage Wireframe](documentation/wireframes/desktop_homepage_wireframe.png)
+![Edit Booking Wireframe](documentation/wireframes/basiceditbookingwireframe.jpg)
 
 - Delete Booking Wireframe
 
-![Desktop Post Detail Wireframe](documentation/wireframes/desktop_postdetail_wireframe.png)
+![Delete Booking Wireframe](documentation/wireframes/basicdeletebookingwireframe.jpg)
 
 ## Flow Diagram
 
 Here is a diagram showing the possible flow through the site. There are 2 sections shown here. On the left it shows the Admin and the right shows a site user.
 
-![Site Flow Diagram](https://www.figma.com/file/gHk6R0FeT2ix7E7lmObtCQ/TutorSight?type=whiteboard&node-id=0%3A1&t=kuzH5WAPPIhMXxq6-1)
+![Site Flow Diagram](documentation/diagrams/flowchart.jpg)
+![Site Flow Diagram Figma Link](https://www.figma.com/file/gHk6R0FeT2ix7E7lmObtCQ/TutorSight?type=whiteboard&node-id=0%3A1&t=kuzH5WAPPIhMXxq6-1)
 
 ## Database Plan
 
 The database plan is fairly simple, but it shows the information that is stored within the database, the type of data and if it is logged as a Primary or Foreign key where applicable.
 
-![Database plan](https://drawsql.app/teams/mark-youngs-team/diagrams/tutorsight)
-
+![Database plan](documentation/diagrams/erd-drawsql-dataflow.jpg)
+![Database plan DrawSQL Link](https://drawsql.app/teams/mark-youngs-team/diagrams/tutorsight)
 # Features
 
 ## Registration
 
 The user can create an account
 
-![Create an Account](documentation/images/create_account.png)
+![Create an Account](documentation/images/)
 
-View Blog Posts on Home Page
+View Tutor Reviews on Home Page
 
-![View Reviews on Home Page](documentation/images/home.png)
+![View Reviews on Home Page](documentation/images/)
 
 Comment on Reviews and tutor profile.
 
-![Comment on reviews](documentation/images/commenting.png)
+![Comment on reviews](documentation/images/)
 
 ## Future Features
 
@@ -307,27 +310,46 @@ ADMIN
 
 ## Bugs
 
-One of my users reported that they were unable to sign up when including an email address (although the inclusion of an email address is not required), but myself and others were unable to replicate this issue so the bug was marked as closed.
+PostgreSQL Version Mismatch Error:
 
-At different points throughout this project, I encountered various bugs involving the styling. These usually appeared after adding a new section or template page. These were all fixed using Bootstrap classes or custom CSS to override any issues caused by Bootstrap itself.
+Issue: Django was expecting PostgreSQL version 12 or later, but PostgreSQL 11.18 was found.
+Fix: Ensure that you are using PostgreSQL version 12 or later. Check your database configuration.
+TemplateSyntaxError in Django:
 
-Towards the end of completion, I had an issue with the database, where I had made a change to the Post Model, but hadn't migrated the changes after undoing the changes in the code relating to that change. This required me to reset the database, which was done with help from Rebecca via the Code Institute's Tutor Support. The changes related to the Category Model and the choices available when creating an account.
+Issue: TemplateSyntaxError at /booking/AC_1001/new/: Invalid block tag 'endif', expected 'endblock'.
+Fix: Check the template file at line 51 for correct block tags. Ensure proper usage of {% endif %} and {% endblock %}.
+TemplateDoesNotExist Error - tempus_dominus/widget.html:
 
-To enable me to reset the database, I first had to comment out the code (related to "choices" in the model) to stop the code being run and causing an error. Once this was done, the database was reset, seemingly without issue.
+Issue: Django couldn't find the template file tempus_dominus/widget.html.
+Fix: Ensure that the required template file tempus_dominus/widget.html is available in the specified location or install the required package if it's part of a third-party library.
+Prepopulating Form Data in Django View:
 
-Then I had a problem with the "Create a Post" page. When adding a new blog post via the browser, the images were not being sent to cloudinary for cloud storage, and the ElephantSQL cloud database was also not recieving any data. This was a very simple fix as I needed to add ```enctype="multipart/form-data"``` into the form element.
+Issue: Form data was not prepopulating in the Django edit view.
+Fix: Ensure that you pass the instance of the object to the form in the view. Example: form = BookingForm(instance=booking).
+KeyError in Django:
+
+Issue: KeyError at /booking/AC_1001/new/: 'booking_time'.
+Fix: Check if the form is correctly defining the field 'booking_time' and ensure it's present in the submitted data.
+OperationalError - PostgreSQL Connection Issue:
+
+Issue: OperationalError at /: Connection to PostgreSQL server failed due to password authentication failure.
+Fix: Double-check the database credentials, especially the password, in your Django settings. Ensure they match the credentials provided by your PostgreSQL service.
+TemplateDoesNotExist Error - accept_booking.html:
+
+Issue: Django couldn't find the template file accept_booking.html.
+Fix: Create the template file accept_booking.html in the specified location or adjust the template reference.
+Reverse for 'edit_booking' Error:
+
+Issue: Reverse for 'edit_booking' with arguments '('',)' not found.
+Fix: Ensure that the edit_booking URL pattern in urls.py expects an integer parameter and check the value being passed in the template.
 
 ## Lighthouse
 
 The performance scores appear to be low, and I believe this is due to the images uploaded for each blog post being hosted on a third-party cloud-based platform.
 
-Mobile
-
-![Lighthouse Mobile Score](documentation/images/lighthouse_mobile.png)
-
 Desktop
 
-![Lighthouse Desktop Score](documentation/images/lighthouse_desktop.png)
+![Lighthouse Desktop Score](documentation/testing/lighthousetesting.jpg)
 
 ## Validation Testing
 
@@ -425,6 +447,6 @@ Patricia Young my mother who has been encouraging and patient with me throughout
 
 Jubril my mentor at Code Institute who was very patient and generous with his time.
 
-Kyle Clow and Stephen Dawson new friends and recent hackathon partners who has helped me throughout my project with encouragement and patience. I can not thank them enough.
+Kyle Clow and Stephen Dawson new friends and recent hackathon partners who have helped me throughout my project with encouragement and patience. I can not thank them enough.
 
-Other Slack members and the code institute tutoring service was also helpful throughout the project.
+Other Slack members and the code institute tutoring service were also helpful throughout the project.
