@@ -3,18 +3,22 @@ from django.contrib import admin
 from .models import TeacherProfile, Review, Comment, Booking
 from django_summernote.admin import SummernoteModelAdmin
 
+
 class TeacherProfileForm(forms.ModelForm):
     class Meta:
         model = TeacherProfile
         fields = '__all__'
+
 
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['subject', 'date', 'time']
 
+
 admin.site.register(TeacherProfile)
 admin.site.register(Booking)
+
 
 @admin.register(Review)
 class ReviewAdmin(SummernoteModelAdmin):
@@ -25,6 +29,7 @@ class ReviewAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
+
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'body', 'review', 'created_on', 'approved')
@@ -34,4 +39,3 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-

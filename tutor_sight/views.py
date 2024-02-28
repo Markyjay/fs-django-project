@@ -7,6 +7,7 @@ from django.template import loader
 from django.views.generic import ListView, View
 from datetime import time
 
+
 class Index(ListView):
     model = TeacherProfile
     template_name = 'index.html'
@@ -15,13 +16,14 @@ class Index(ListView):
     def get_queryset(self):
         return TeacherProfile.objects.all()
 
+
 class ReviewDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
         teacher = get_object_or_404(TeacherProfile, teacher_id=teacher_id)
         reviews = teacher.reviews.filter(status=1).order_by('-created_on')
         bookings = Booking.objects.filter(teacher=teacher)
-                
+
         return render(
                 request,
                 "review_detail.html",
@@ -32,10 +34,11 @@ class ReviewDetail(View):
                 },
             )
 
+
 @login_required
 def create_booking(request, teacher_id):
     teacher = get_object_or_404(TeacherProfile, pk=teacher_id)
-   
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -48,16 +51,17 @@ def create_booking(request, teacher_id):
             booking.save()
             if booking.id:
                 return redirect('accept_booking', booking_id=booking.id)
-            
+
     else:
         form = BookingForm()
-    
+
     context = {
         'booking_form': form,
         'teacher_id': teacher_id,
         'teacher': teacher,
     }
     return render(request, 'create_booking.html', context)
+
 
 @login_required
 def edit_booking(request, booking_id):
@@ -67,9 +71,9 @@ def edit_booking(request, booking_id):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             edited_booking = form.save(commit=False)
-            edited_booking.status = "pending"  
+            edited_booking.status = "pending"
             edited_booking.save()
-            return redirect('Index') 
+            return redirect('Index')
     else:
         form = BookingForm(instance=booking)
 
@@ -80,15 +84,17 @@ def edit_booking(request, booking_id):
 
     return render(request, 'edit_booking.html', context)
 
+
 @login_required
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
     if request.method == 'POST':
         booking.delete()
-        return redirect('Index') 
+        return redirect('Index')
 
     return render(request, 'delete_booking.html', {'booking': booking})
+
 
 @login_required
 def accept_booking(request, booking_id):
@@ -101,11 +107,11 @@ def accept_booking(request, booking_id):
 
     else:
         form = BookingForm()
-    
+
     context = {
         'booking': booking,
     }
-    
+
     return render(request, 'accept_booking.html', {'booking': booking})
 
 
@@ -114,6 +120,7 @@ class ReviewList(ListView):
     queryset = Review.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
+
 
 class ReviewDetail(View):
 
@@ -136,7 +143,7 @@ class ReviewDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Review.objects.filter(status=1)
@@ -168,8 +175,9 @@ class ReviewDetail(View):
             },
         )
 
+
 class ReviewLike(View):
-    
+
     def review(self, request, slug, *args, **kwargs):
         review = get_object_or_404(Review, slug=slug)
         if review.likes.filter(id=request.user.id).exists():

@@ -143,7 +143,6 @@ White backgrounds and dark blue-gray elements maintain readability and a modern 
 Puce is used as an accent color for attention-grabbing elements.
 The color scheme aims to convey trust, growth, and a positive learning environment, which aligns with the tutoring site's purpose.
 ![Coolors Pallete](documentation/diagrams/colorpalettelooka.jpg)
-![Coolors Pallete Coolers Link](https://coolors.co/72b01d-0e402d-a3e7fc-fffcff-d6a2ad)
 
 
 ## Typography
@@ -283,27 +282,32 @@ As each section or Function/Model was built during this project, I was testing f
 ADMIN
 | TEST | OUTCOME | PASS/FAIL|
 |:---:|:---:|:---:|
-| Create Blog Post | Post successfully created and displayed | Pass |
-| Edit Blog Post | Error thrown when editing post title & slug (*) | FAIL |
-| Edit Blog Post (after fix) | Post content and category updated successfully | Pass |
-| Delete User Comments | Comment deleted successfully | Pass |
-| Delete Blog Post | Post deleted successfully | Pass |
-| Create 7 Test Posts to check Pagination | Next/Previous Page Appears at bottom of screen | Pass |
+| Create a Booking | Book a session successfully | Pass |
+| Edit a previous booking | Could not get info to draw from stored database | FAIL |
+| Confirm a booking | Did not have enough time to implement this | FAIL |
+| Delete Booking | Booking deletes successfully | Pass |
+| Write a comment | Could manually enter comments using admin | PASS |
+| Delete User Comments | Could manually delete comments using admin | PASS |
+| Delete Review | Could manually delete reviews using admin | PASS |
+| Create 7 Test Posts to check Pagination | Next/Previous Page Appears at bottom of screen | PASS |
 
-(*) - While testing the ability to edit posts (Limited to Admin only), I had a problem when editing the title and slug of the post. This was due to the URL not being able to find the original slug of the post (because it had been changed during the edit) to route it after the editing was complete. At this stage, I felt the easiest fix was to remove the ability to edit the post title and slug in the browser, but this functionality is still available via the django admin panel.
+(*) - Due to securing a new position in November my time that I could allocate to this project diminished significantly and I got stuck at many points along the way, It was only in the last few weeks that I was starting to understand python and had very little if any experience with bootstrap. Implementing models connecting views and urls properly was very difficult when creating a new type of model from what was shown in the walkthrough, I made things very difficult for myself unintentionally. If i could go back I would certainly prepare better and with the knowledge I have now I could create a much better project. I know myself this is a substandard attempt i only wish you can see the effort I made and I hope it merits a pass. 
 
 ## User
 
 | TEST | OUTCOME | PASS/FAIL|
 |:---:|:---:|:---:|
 | Create Account | Created successfully | Pass |
-| Error Check - Error page when signing up with email address | Unable to replicate(*) | Closed |
-| Login | Login Successful | Pass |
-| Logout | Logout Successful | Pass |
-| Read Full Blog Post | PostDetail page loaded successfully | Pass |
-| Add Comment under Blogpost | Comment Added Successfully | Pass |
-| Delete Comment | Comment Deleted | Pass |
-| Filter Posts by category | Posts marked as selected category displayed successfully | Pass |
+| Login | Login Successful | PASS |
+| Logout | Logout Successful | PASS |
+| Create a Booking | Book a session successfully | PASS |
+| Edit a previous booking | Could not get info to draw from stored database | FAIL |
+| Confirm a booking | Did not have enough time to implement this | FAIL |
+| Delete Booking | Booking deletes successfully | Pass |
+| Write a comment | Ran out of time to implement this feature | FAIL |
+| Delete User Comments | Ran out of time to implement this feature | FAIL |
+| Delete Review | Ran out of time to implement this feature | FAIL |
+| Filter Posts by category | Ran out of time to implement this feature | FAIL |
 | Create User Account to check access to restricted pages (add_post, add_category)| Page displayed correct error message, with no access to restricted content | Pass |
 
 (*) See Bugs below
@@ -370,6 +374,7 @@ Fixed:
 Python pep8 validation was done via [Code Institute's Python Linter](https://pep8ci.herokuapp.com/)
 
 The only errors recieved here were where some lines of text exceeded the limit of 79 characters, but these have now been rectified.
+![Python Linter test example](documentation/testing/pythonlintertesting.jpg)
 
 Python Files Tested:
 

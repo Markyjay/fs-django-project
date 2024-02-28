@@ -5,6 +5,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+
 class TeacherProfile(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     teacher_id = models.CharField(max_length=100, primary_key=True)
@@ -14,7 +15,8 @@ class TeacherProfile(models.Model):
     expertise = models.CharField(max_length=100)
     hourly_rate = models.DecimalField(max_digits=5, decimal_places=2)
     availability = models.TextField()
-    
+
+
 class Review(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -41,9 +43,10 @@ class Review(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+
 class Comment(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE,
-                             related_name="reviews")
+                               related_name="reviews")
     name = models.CharField(max_length=80)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -59,7 +62,8 @@ class Comment(models.Model):
 class Booking(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
-    teacher = models.ForeignKey( TeacherProfile, on_delete=models.CASCADE, null=True, blank=True)
+    teacher = models.ForeignKey(TeacherProfile, on_delete=models.CASCADE,
+                                null=True, blank=True)
     subject = models.CharField(max_length=50, null=True, blank=True)
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
@@ -68,4 +72,3 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"{self.user} | date: {self.date} | time: {self.time}"
-

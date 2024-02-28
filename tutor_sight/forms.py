@@ -6,19 +6,23 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone
 from datetime import date, datetime, timedelta
 
+
 class TeacherProfileForm(forms.ModelForm):
     class Meta:
         model = TeacherProfile
         fields = '__all__'
 
+
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ('subject', 'booking_date', 'booking_time')
-    
+
     subject = forms.CharField(label='Subject', max_length=100)
-    booking_date = forms.DateField(label='Booking Date', widget=forms.DateInput(attrs={'type': 'date'}))
-    booking_time = forms.TimeField(label='Booking Time', widget=forms.TimeInput(attrs={'type': 'time'}))
+    booking_date = forms.DateField(label='Booking Date', widget=forms.DateInput
+                                   (attrs={'type': 'date'}))
+    booking_time = forms.TimeField(label='Booking Time', widget=forms.TimeInput
+                                   (attrs={'type': 'time'}))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -43,12 +47,13 @@ class BookingForm(forms.ModelForm):
         if booking_date and booking_time:
             # Combine date and time to create a datetime object
             booking_datetime = datetime.combine(booking_date, booking_time)
-        
+
             # Ensure the selected datetime is not in the past
             if booking_datetime < datetime.now():
-                raise ValidationError('Booking date and time cannot be in the past.')
+                raise ValidationError('Booking must be a future date & time')
 
         return cleaned_data
+
 
 class CommentForm(forms.ModelForm):
     class Meta:

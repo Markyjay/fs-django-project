@@ -3,7 +3,7 @@ from django.contrib.messages import constants as messages
 import os
 import dj_database_url
 if os.path.isfile('env.py'):
-     import env
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,7 +18,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tutorsight-django-project-fa74b7b42ae2.herokuapp.com', 'localhost', '8000-markyjay-fsdjangoprojec-ev1i8mh575m.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['tutorsight-django-project-fa74b7b42ae2.herokuapp.com',
+                 'localhost',
+                 '8000-markyjay-fsdjangoprojec-ev1i8mh575m.ws-eu108.gitpod.io']
 
 
 # Application definition
@@ -123,7 +125,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Django Allauth Settings
-SITE_ID = 1 
+SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
