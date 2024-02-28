@@ -2,7 +2,7 @@
 
 ### A website to help students find the help they need.
 
-![TutorSight](documentation/images/__..__.png)
+![TutorSight](documentation/amiresponsive.jpg)
 
 Portfolio 4 project as part of the Diploma in Full Stack Software Development by Code Institute.
 ___
@@ -179,29 +179,48 @@ The overall changes aim to enhance readability and maintain a professional appea
 Here is a diagram showing the possible flow through the site. There are 2 sections shown here. On the left it shows the Admin and the right shows a site user.
 
 ![Site Flow Diagram](documentation/diagrams/flowchart.jpg)
-![Site Flow Diagram Figma Link](https://www.figma.com/file/gHk6R0FeT2ix7E7lmObtCQ/TutorSight?type=whiteboard&node-id=0%3A1&t=kuzH5WAPPIhMXxq6-1)
 
 ## Database Plan
 
 The database plan is fairly simple, but it shows the information that is stored within the database, the type of data and if it is logged as a Primary or Foreign key where applicable.
 
 ![Database plan](documentation/diagrams/erd-drawsql-dataflow.jpg)
-![Database plan DrawSQL Link](https://drawsql.app/teams/mark-youngs-team/diagrams/tutorsight)
+
 # Features
 
 ## Registration
 
 The user can create an account
 
-![Create an Account](documentation/images/)
+![Create an Account](documentation/createaccount.jpg)
 
-View Tutor Reviews on Home Page
+The user can logout of an account
 
-![View Reviews on Home Page](documentation/images/)
+![Account Logout](documentation/logoutaccount.jpg)
 
-Comment on Reviews and tutor profile.
 
-![Comment on reviews](documentation/images/)
+
+## Session booking
+
+The user can book a session with any tutor
+
+![Book a session](documentation/createbooking.jpg)
+
+The tutor can accept or deny a booked session with a student.
+
+![Session is under review](documentation/createbooking.jpg)
+
+The user can edit previously booked session with tutor.
+
+![Edit a session](documentation/editbooking.jpg)
+
+The user can delete a previously booked session with tutor
+
+![Delete a booking](documentation/deletebooking.jpg)
+
+## Features not implemented
+
+Comments and reviews have been removed due to lack of time.
 
 ## Future Features
 
