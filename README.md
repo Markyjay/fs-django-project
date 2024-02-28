@@ -16,7 +16,6 @@ Link to live site - [https://tutorsight-django-project-fa74b7b42ae2.herokuapp.co
 ## CONTENTS
 
 - [TutorSight](#TutorSight)
-    - [A website to help students find the help they need ](#A website to help students find the help they need)
   - [CONTENTS](#contents)
   - [Site Objectives](#site-objectives)
 - [User Experience/UX](#user-experienceux)
@@ -156,6 +155,12 @@ The overall changes aim to enhance readability and maintain a professional appea
 
 - The logo was created using an online logo creator - [Looka](https://looka.com/)
 
+![Logo](/documentation/tutorsightlogo.jpg)
+
+- The Favicon was created using an online Favicon creator - [Favicon](https://favicon.io/)
+
+![Favicon](/documentation/tutorsightowl.jpg)
+
 ## Wireframes
 
 - Homepage Wireframe
@@ -197,8 +202,6 @@ The user can create an account
 The user can logout of an account
 
 ![Account Logout](documentation/logoutaccount.jpg)
-
-
 
 ## Session booking
 
@@ -301,16 +304,16 @@ As each section or Function/Model was built during this project, I was testing f
 ADMIN
 | TEST | OUTCOME | PASS/FAIL|
 |:---:|:---:|:---:|
-| Create a Booking | Book a session successfully | Pass |
-| Edit a previous booking | Could not get info to draw from stored database | FAIL |
+| Create a Booking | Book a session successfully | PASS |
+| Edit a previous booking | Only able to implement edit directly after its creation | PASS |
 | Confirm a booking | Did not have enough time to implement this | FAIL |
-| Delete Booking | Booking deletes successfully | Pass |
+| Delete Booking | Booking deletes successfully | PASS |
 | Write a comment | Could manually enter comments using admin | PASS |
 | Delete User Comments | Could manually delete comments using admin | PASS |
 | Delete Review | Could manually delete reviews using admin | PASS |
 | Create 7 Test Posts to check Pagination | Next/Previous Page Appears at bottom of screen | PASS |
 
-(*) - Due to securing a new position in November my time that I could allocate to this project diminished significantly and I got stuck at many points along the way, It was only in the last few weeks that I was starting to understand python and had very little if any experience with bootstrap. Implementing models connecting views and urls properly was very difficult when creating a new type of model from what was shown in the walkthrough, I made things very difficult for myself unintentionally. If i could go back I would certainly prepare better and with the knowledge I have now I could create a much better project. I know myself this is a substandard attempt i only wish you can see the effort I made and I hope it merits a pass. 
+(*) - Due to securing a new position in November my time that I could allocate to this project diminished significantly and I got stuck at many points along the way, It was only in the last few weeks that I was starting to understand python and had very little if any experience with bootstrap. Implementing models connecting views and urls properly was very difficult when creating a new type of model from what was shown in the walkthrough, I made things very difficult for myself unintentionally. If i could go back I would certainly prepare better and with the knowledge I have now I could create a much better project. I know myself this is a substandard attempt I only wish you see the effort I made and I hope it merits a pass. 
 
 ## User
 
@@ -320,14 +323,13 @@ ADMIN
 | Login | Login Successful | PASS |
 | Logout | Logout Successful | PASS |
 | Create a Booking | Book a session successfully | PASS |
-| Edit a previous booking | Could not get info to draw from stored database | FAIL |
+| Edit a previous booking | Only directly after creation | PASS |
 | Confirm a booking | Did not have enough time to implement this | FAIL |
 | Delete Booking | Booking deletes successfully | Pass |
 | Write a comment | Ran out of time to implement this feature | FAIL |
 | Delete User Comments | Ran out of time to implement this feature | FAIL |
 | Delete Review | Ran out of time to implement this feature | FAIL |
 | Filter Posts by category | Ran out of time to implement this feature | FAIL |
-| Create User Account to check access to restricted pages (add_post, add_category)| Page displayed correct error message, with no access to restricted content | Pass |
 
 (*) See Bugs below
 
@@ -335,36 +337,39 @@ ADMIN
 
 PostgreSQL Version Mismatch Error:
 
-Issue: Django was expecting PostgreSQL version 12 or later, but PostgreSQL 11.18 was found.
-Fix: Ensure that you are using PostgreSQL version 12 or later. Check your database configuration.
-TemplateSyntaxError in Django:
+- Issue: Django was expecting PostgreSQL version 12 or later, but PostgreSQL 11.18 was found.
+  Fix: Ensure that you are using PostgreSQL version 12 or later. Check your database configuration.
+  TemplateSyntaxError in Django:
 
-Issue: TemplateSyntaxError at /booking/AC_1001/new/: Invalid block tag 'endif', expected 'endblock'.
-Fix: Check the template file at line 51 for correct block tags. Ensure proper usage of {% endif %} and {% endblock %}.
-TemplateDoesNotExist Error - tempus_dominus/widget.html:
+- Issue: TemplateSyntaxError at /booking/AC_1001/new/: Invalid block tag 'endif', expected 'endblock'.
+  Fix: Check the template file at line 51 for correct block tags. Ensure proper usage of {% endif %} and {% endblock %}.
+  TemplateDoesNotExist Error - tempus_dominus/widget.html:
 
-Issue: Django couldn't find the template file tempus_dominus/widget.html.
-Fix: Ensure that the required template file tempus_dominus/widget.html is available in the specified location or install the required package if it's part of a third-party library.
-Prepopulating Form Data in Django View:
+- Issue: Django couldn't find the template file tempus_dominus/widget.html.
+  Fix: Ensure that the required template file tempus_dominus/widget.html is available in the specified location or install the required package if it's part of a third-party library.
+  Prepopulating Form Data in Django View:
 
-Issue: Form data was not prepopulating in the Django edit view.
-Fix: Ensure that you pass the instance of the object to the form in the view. Example: form = BookingForm(instance=booking).
-KeyError in Django:
+- Issue: Form data was not prepopulating in the Django edit view.
+  Fix: Ensure that you pass the instance of the object to the form in the view. Example: form = BookingForm(instance=booking).
+  KeyError in Django:
 
-Issue: KeyError at /booking/AC_1001/new/: 'booking_time'.
-Fix: Check if the form is correctly defining the field 'booking_time' and ensure it's present in the submitted data.
-OperationalError - PostgreSQL Connection Issue:
+- Issue: KeyError at /booking/AC_1001/new/: 'booking_time'.
+  Fix: Check if the form is correctly defining the field 'booking_time' and ensure it's present in the submitted data.
+  OperationalError - PostgreSQL Connection Issue:
 
-Issue: OperationalError at /: Connection to PostgreSQL server failed due to password authentication failure.
-Fix: Double-check the database credentials, especially the password, in your Django settings. Ensure they match the credentials provided by your PostgreSQL service.
-TemplateDoesNotExist Error - accept_booking.html:
+- Issue: OperationalError at /: Connection to PostgreSQL server failed due to password authentication failure.
+  Fix: Double-check the database credentials, especially the password, in your Django settings. Ensure they match the credentials provided by your PostgreSQL service.
+  TemplateDoesNotExist Error - accept_booking.html:
 
-Issue: Django couldn't find the template file accept_booking.html.
-Fix: Create the template file accept_booking.html in the specified location or adjust the template reference.
-Reverse for 'edit_booking' Error:
+- Issue: Django couldn't find the template file accept_booking.html.
+  Fix: Create the template file accept_booking.html in the specified location or adjust the template reference.
+  Reverse for 'edit_booking' Error:
 
-Issue: Reverse for 'edit_booking' with arguments '('',)' not found.
-Fix: Ensure that the edit_booking URL pattern in urls.py expects an integer parameter and check the value being passed in the template.
+- Issue: Reverse for 'edit_booking' with arguments '('',)' not found.
+  Fix: Ensure that the edit_booking URL pattern in urls.py expects an integer parameter and check the value being passed in the template.
+
+- Issue: In the accept_booking.html page, there was an issue with the "Edit Booking" functionality. Initially, a form tag was used for the button, causing unexpected behavior and preventing the display of stored content when editing a booking.
+  Fix: The issue was resolved by changing the implementation to use a hyperlink (<a> tag) with the appropriate URL pointing to the edit_booking view. This adjustment ensures a smoother user experience, allowing users to navigate directly to the edit page without the need for a form submission.
 
 ## Lighthouse
 
@@ -380,13 +385,7 @@ Desktop
 
 HTML & CSS testing was completed using [W3 Validator](https://validator.w3.org/)
 
-When validating the code, I had the error shown below. this was fixed by removing the button and using Bootstrap styles to display the link as a button instead
-
-![HTML Validation - Descendant Error](documentation/testing_documentation/validation/base.html_button_descendant.png)
-
-Fixed:
-
-![HTML Validation Complete- base.html](documentation/testing_documentation/validation/index.html_validation_complete.png)
+![HTML Validation completed](documentation/testing/htmlverification.jpg)
 
 ## Python Testing
 
