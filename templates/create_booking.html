@@ -9,10 +9,14 @@
           <h1 class="profile">{{ teacher.name }}</h1>
           <p class="profile-subtitle">{{ teacher.teacher_id }}</p>
           <div class="row">
-            <div class="col-md-4">
+            <div class="row-md-4">
               <img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded-circle mb-3">
               <div class="text-center shadow-lg p-3 mb-2 rounded">
-                <strong>Biography:</strong> {{ teacher.bio }}
+                <li class="list-group-item"><strong>Teacher Name:</strong> {{ teacher.name }}</li>
+                <li class="list-group-item"><strong>Expertise:</strong> {{ teacher.expertise }}</li>
+                <li class="list-group-item"><strong>Biography:</strong> {{ teacher.bio }}</li>
+                <li class="list-group-item"><strong>Hourly Rate:</strong> €{{ teacher.hourly_rate }}</li>
+                <li class="list-group-item"><strong>Availability:</strong> {{ teacher.availability }}</li>
               </div>
             </div>
           </div>

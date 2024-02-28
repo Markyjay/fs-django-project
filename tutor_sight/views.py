@@ -45,8 +45,8 @@ def create_booking(request, teacher_id):
             booking = form.save(commit=False)
             booking.user = request.user
             booking.teacher = teacher
-            booking.date = form.cleaned_data['booking_date']
-            booking.time = form.cleaned_data['booking_time']
+            booking.date = form.cleaned_data['date']
+            booking.time = form.cleaned_data['time']
             booking.status = "pending"
             booking.save()
             if booking.id:

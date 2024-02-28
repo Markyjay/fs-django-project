@@ -19,10 +19,7 @@
             {% if booking.status == 'pending' %}
                 <div class="row">
                     <div class="col-md-6">
-                        <form method="post" action="{% url 'edit_booking' booking.id %}" style="display: inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-primary">Edit Booking</button>
-                        </form>
+                        <a href="{% url 'edit_booking' booking.id %}" class="btn btn-primary">Edit Booking</a>
                     </div>
                     <div class="col-md-6">
                         <form method="post" action="{% url 'delete_booking' booking.id %}" style="display: inline;">

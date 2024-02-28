@@ -9,7 +9,12 @@
             </div>
             <div class="col-md-6">
                 <div class="rounded mx-auto mb-2"><img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded-circle mx-auto d-block mb-3">
-                <div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Biography: </strong>{{ teacher.bio }}</div>
+                <div class="text-center shadow-lg p-3 mb-2 rounded">
+                    <li class="list-group-item"><strong>Teacher Name:</strong> {{ teacher.name }}</li>
+                    <li class="list-group-item"><strong>Expertise:</strong> {{ teacher.expertise }}</li>
+                    <li class="list-group-item"><strong>Biography:</strong> {{ teacher.bio }}</li>
+                    <li class="list-group-item"><strong>Hourly Rate:</strong> €{{ teacher.hourly_rate }}</li>
+                    <li class="list-group-item"><strong>Availability:</strong> {{ teacher.availability }}</div></li>
                 </div>
             </div>
         </div>
@@ -19,8 +24,8 @@
             <h3>Edit Booking:</h3>
             <p>Booking by: {{ user.username }}</p>
             <form method="post" action="{% url 'edit_booking' booking.id %}" style="margin-top: 1.3em;">
-                {{ form.as_p }}
                 {% csrf_token %}
+                {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Submit Edit</button>
             </form>
             {% endif %}
