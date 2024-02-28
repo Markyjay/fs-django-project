@@ -66,6 +66,7 @@ def create_booking(request, teacher_id):
 @login_required
 def edit_booking(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
+    teacher = booking.teacher
 
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
@@ -80,6 +81,7 @@ def edit_booking(request, booking_id):
     context = {
         'form': form,
         'booking': booking,
+        'teacher': teacher,
     }
 
     return render(request, 'edit_booking.html', context)

@@ -1,31 +1,30 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="masthead">
-    <div class="container-fluid">
-        <div class="card row g-0">
-            <div class="col-md-6 masthead-text">
+<div class="container mt-5">
+    <div class="card p-4">
+        <div class="row g-0">
+            <div class="col-md-6">
                 <h1 class="profile">{{ teacher.name }}</h1>
                 <p class="profile-subtitle">{{ teacher.teacher_id }}</p>
             </div>
-            <div class="col-md-4 pr-5">
+            <div class="col-md-6">
                 <div class="rounded mx-auto mb-2"><img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded-circle mx-auto d-block mb-3">
                 <div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Biography: </strong>{{ teacher.bio }}</div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        {% if user.is_authenticated %}
-        <h3>Edit booking:</h3>
-        <p>Booking by: {{ user.username }}</p>
-        <form method="post" action="{% url 'edit_booking' booking.id %}" style="margin-top: 1.3em;">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% endif %}
+        <div class="container mt-4">
+            {% if user.is_authenticated %}
+            <h3>Edit Booking:</h3>
+            <p>Booking by: {{ user.username }}</p>
+            <form method="post" action="{% url 'edit_booking' booking.id %}" style="margin-top: 1.3em;">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Submit Edit</button>
+            </form>
+            {% endif %}
+        </div>
     </div>
 </div>
 

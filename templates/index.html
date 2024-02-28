@@ -2,46 +2,27 @@
 {% load static %}
 {% block content %} 
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 mt-3 left">
-        <div class="row">
-          {% for teacher in teacherprofiles %}
-            <a href="{% url 'create_booking' teacher.teacher_id %}" class="col-6 card link rounded mx-auto d-block alert-warning"></a>
-              <div class="card w-60 p-1">
-                <div class="card-body alert-info">
-                  <h2 class="card-title">{{ teacher.name }}</h2>
-                   <div class = "card-body alert-info d-flex">
-                    <div class="col-md-4 pr-5">
-                      <div class="rounded mx-auto d-block mb-2"><img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded-circle mx-auto d-block mb-3"></a></div>
-                        {% for review in teacher.reviews.all %}
-                        <div class="card">
-                          <div class="card-body">
-                            <h5 class="card-title"><strong>Title:</strong>{{ review.title }}</h5>
-                                <p class="card-text"><strong>Comment:</strong>{{ review.excerpt }}</p>
-                                <p class="card-text"><strong>Author:</strong>{{ review.user_id }}</p>
-                                <a href="{% url 'review_detail' slug=review.slug %}" class="btn btn-primary">Read More</a>
-                          </div>
-                        </div>
-                        {% endfor %} 
-                      </div> 
-                      <div class = "align-middle w-50 p-3">
-                        <ul class="list-group list-group-flush align-middle">
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Teacher ID: </strong>{{ teacher.teacher_id }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Biography: </strong>{{ teacher.bio }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Expertise: </strong>{{ teacher.expertise }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Hourly Rate: </strong>€{{ teacher.hourly_rate }}</div></li>
-                          <li class="list-group-item"><div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Availability: </strong>{{ teacher.availability }}</div></li>
-                          <li class="list-group-item"><div class="card-text text-center"><a class="btn btn-success" href="{% url 'create_booking' teacher.teacher_id %}">Book A Session</a></div></li>
-                        </ul>
-                      </div>
-                    </div>
-                    </div>
-                </div>
-              </div>
-          {% endfor %}
+<div class="container mt-3">
+  <div class="row">
+    {% for teacher in teacherprofiles %}
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card">
+          <img src="{{ teacher.profile_image.url }}" class="card-img-top" alt="{{ teacher.name }}'s Profile Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ teacher.name }}</h5>
+            <p class="card-text">{{ teacher.bio }}</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Teacher ID:</strong> {{ teacher.teacher_id }}</li>
+              <li class="list-group-item"><strong>Expertise:</strong> {{ teacher.expertise }}</li>
+              <li class="list-group-item"><strong>Hourly Rate:</strong> €{{ teacher.hourly_rate }}</li>
+              <li class="list-group-item"><strong>Availability:</strong> {{ teacher.availability }}</li>
+            </ul>
+            <a href="{% url 'create_booking' teacher.teacher_id %}" class="btn btn-success mt-3">Book A Session</a>
+          </div>
         </div>
       </div>
-    </div>
+    {% endfor %}
   </div>
+</div>
+
 {% endblock %}

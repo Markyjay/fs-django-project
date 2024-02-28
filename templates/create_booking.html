@@ -1,29 +1,40 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 
-<div class="masthead">
-    <div class="container-fluid">
-        <div class="card row-lg-2 g-0">
-                <h1 class="profile">{{ teacher.name }}</h1>
-                <p class="profile-subtitle">{{ teacher.teacher_id }}</p>
-            <div class="col-md-4 pr-5">
-                <div class="rounded mx-auto mb-2"><img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded-circle mx-auto d-block mb-3">
-                    <div class="text-center shadow-lg p-3 mb-2 rounded"><strong>Biography: </strong>{{ teacher.bio }}</div>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="profile">{{ teacher.name }}</h1>
+          <p class="profile-subtitle">{{ teacher.teacher_id }}</p>
+          <div class="row">
+            <div class="col-md-4">
+              <img src="{{ teacher.profile_image.url }}" alt="{{ teacher.name }}'s Profile Image" class="img-thumbnail rounded-circle mb-3">
+              <div class="text-center shadow-lg p-3 mb-2 rounded">
+                <strong>Biography:</strong> {{ teacher.bio }}
+              </div>
             </div>
+          </div>
         </div>
-        <div class="container">
-            <div class="row">
-                   {% if user.is_authenticated %}
-                   <h3>Make a booking:</h3>
-                   <p>Booking by: {{ user.username }}</p>
-                   <form method="post" action="" style="margin-top: 1.3em;">
-                       {{ booking_form }}
-                       {% csrf_token %}
-                       <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                   </form>
-                   {% endif %}
-               </div>
-           </div>
-       </div>
+      </div>
     </div>
+    <div class="col-md-4">
+      {% if user.is_authenticated %}
+        <div class="card">
+          <div class="card-body">
+            <h3>Make a Booking</h3>
+            <p>Booking by: {{ user.username }}</p>
+            <form method="post" action="" style="margin-top: 1.3em;">
+              {{ booking_form }}
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success btn-lg">Submit</button>
+            </form>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
 </div>
+
 {% endblock content %}
